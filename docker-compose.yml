@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  db:
+    image: cimg/postgres:13.8-postgis
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASS=postgres
+    restart: on-failure
+    healthcheck:
+      test: "exit 0"
+    ports:
+      - 5432:5432
