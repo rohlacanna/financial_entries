@@ -1,4 +1,5 @@
 defmodule FinancialEntriesWeb.Router do
+  alias FinancialEntriesWeb.ClientController
   use FinancialEntriesWeb, :router
 
   pipeline :browser do
@@ -39,6 +40,8 @@ defmodule FinancialEntriesWeb.Router do
       pipe_through :browser
 
       live_dashboard "/dashboard", metrics: FinancialEntriesWeb.Telemetry
+
+      get("/", ClientController, :index)
     end
   end
 
